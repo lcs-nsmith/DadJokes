@@ -52,7 +52,8 @@
 			isa = PBXGroup;
 			children = (
 				4A9229C027C5448600FAC3B6 /* DadJokesApp.swift */,
-				4A9229C227C5448600FAC3B6 /* ContentView.swift */,
+				4A9229CE27C54A0300FAC3B6 /* Model */,
+				4A9229CF27C54A0B00FAC3B6 /* Views */,
 				4A9229C427C5448900FAC3B6 /* Assets.xcassets */,
 				4A9229C627C5448900FAC3B6 /* Preview Content */,
 			);
@@ -65,6 +66,21 @@
 				4A9229C727C5448900FAC3B6 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4A9229CE27C54A0300FAC3B6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4A9229CF27C54A0B00FAC3B6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4A9229C227C5448600FAC3B6 /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
