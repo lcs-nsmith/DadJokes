@@ -163,7 +163,7 @@ struct ContentView: View {
         let filename = getDocumentsDirectory().appendingPathComponent(savedFavouritesLabel)
         print(filename)
         
-            // Try to encode the data ib our list of avourites to JSON
+        // Try to encode the data in our list of favourites to JSON
         do {
             // Create a JSON Encoder object
             let encoder = JSONEncoder()
@@ -188,7 +188,7 @@ struct ContentView: View {
             print(error.localizedDescription)
         }
     }
-   
+    
     //Loads the data that was saved to the device
     //Loading the favourites
     func loadFavourites() async {
