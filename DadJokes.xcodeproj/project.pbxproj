@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A7765ED27C816D60000F531 /* SharedFunctionsAndConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7765EC27C816D50000F531 /* SharedFunctionsAndConstants.swift */; };
 		4A9229C127C5448600FAC3B6 /* DadJokesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9229C027C5448600FAC3B6 /* DadJokesApp.swift */; };
 		4A9229C327C5448600FAC3B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9229C227C5448600FAC3B6 /* ContentView.swift */; };
 		4A9229C527C5448900FAC3B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A9229C427C5448900FAC3B6 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A7765EC27C816D50000F531 /* SharedFunctionsAndConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFunctionsAndConstants.swift; sourceTree = "<group>"; };
 		4A9229BD27C5448500FAC3B6 /* DadJokes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DadJokes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A9229C027C5448600FAC3B6 /* DadJokesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DadJokesApp.swift; sourceTree = "<group>"; };
 		4A9229C227C5448600FAC3B6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,6 +36,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A7765EB27C816970000F531 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4A7765EC27C816D50000F531 /* SharedFunctionsAndConstants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		4A9229B427C5448500FAC3B6 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +66,7 @@
 				4A9229C027C5448600FAC3B6 /* DadJokesApp.swift */,
 				4A9229CE27C54A0300FAC3B6 /* Model */,
 				4A9229CF27C54A0B00FAC3B6 /* Views */,
+				4A7765EB27C816970000F531 /* Helpers */,
 				4A9229C427C5448900FAC3B6 /* Assets.xcassets */,
 				4A9229C627C5448900FAC3B6 /* Preview Content */,
 			);
@@ -156,6 +167,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A7765ED27C816D60000F531 /* SharedFunctionsAndConstants.swift in Sources */,
 				4A9229C327C5448600FAC3B6 /* ContentView.swift in Sources */,
 				4A9229D127C54A3700FAC3B6 /* DadJoke.swift in Sources */,
 				4A9229C127C5448600FAC3B6 /* DadJokesApp.swift in Sources */,

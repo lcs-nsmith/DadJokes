@@ -104,6 +104,11 @@ struct ContentView: View {
                     print("active")
                 } else {
                     print("background")
+                    //permantly save the list of jokes
+                    
+                    
+                    // Permantly save the list of tasks
+                    persistFavourites()
                 }
             }
             .navigationTitle("icanhazdadjoke?")
@@ -151,7 +156,37 @@ struct ContentView: View {
         }
         currentJokeAddedToFavourites = false
     }
-    
+    // Save the Data Permanently
+    func persistFavourites() {
+        // We need to get a location in which to save the data
+        let filename = getDocumentsDirectory().appendingPathComponent(savedFavouritesLabel)
+        print(filename)
+        
+            // Try to encode the data ib our list of avourites to JSON
+        do {
+            // Create a JSON Encoder object
+            let encoder = JSONEncoder()
+            
+            // Configured the encoder to "pretty print" the JSON
+            encoder.outputFormatting = .prettyPrinted
+            
+            // Encode the list of favourites we've collected
+            let data = try encoder.encode(favourites)
+            
+            //  Write the JSON to a file in the filename location we came up with earlier
+            try data.write(to: filename, options: [.atomicWrite, .completeFileProtection])
+            
+            // See the data that was written
+            print("Saved data to the documents directory sucsessfully")
+            print ("=============")
+            print(String(data: data, encoding: .utf8)!)
+            
+        } catch {
+            print("enable to write list of favourites to the document directory")
+            print("==============")
+            print(error.localizedDescription)
+        }
+    }
 }
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

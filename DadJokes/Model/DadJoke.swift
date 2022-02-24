@@ -9,7 +9,7 @@ import Foundation
 import System
 
 // The Dadjoke structure confomrs to the Decodable Protocol. This means that we want Swift to be able to take a JSON object and 'decode' into an instance of this structure.
-struct DadJoke: Decodable, Hashable {
+struct DadJoke: Decodable, Hashable, Encodable {
     let id: String
     let joke: String
     let status: Int
