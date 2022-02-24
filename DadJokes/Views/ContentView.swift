@@ -11,6 +11,12 @@ struct ContentView: View {
     // MARK: Stored Properties
     @State var currentJoke: DadJoke = DadJoke(id: "", joke: "yo mama", status: 0)
     
+    // This keeps track of the favourites
+    @State var favourites: [DadJoke]  = [] // empty list to start
+    
+    // This will let us know whether the currentJoke exists as a favourite
+    @State var currentJokeAddedToFavourites: Bool = false
+    
     // MARK: Computed Properties
     var body: some View {
         
@@ -35,8 +41,19 @@ struct ContentView: View {
                     Image(systemName: "heart.circle")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .foregroundColor(.gray)
                         .frame(width: 45, height: 45)
+                        .foregroundColor(currentJokeAddedToFavourites == true ? .red : .gray)
+                        .onTapGesture {
+                            // Only adds to list if its not already there
+                            if currentJokeAddedToFavourites == false {
+                                
+                                // Adds the currentJoke to the list
+                                favourites.append(currentJoke)
+                                
+                                //Record that we have marked this as favourite
+                                currentJokeAddedToFavourites = true
+                            }
+                        }
                 })
                     .buttonStyle(.plain)
                 
@@ -55,10 +72,10 @@ struct ContentView: View {
                     .buttonStyle(.borderedProminent)
                     .tint(.gray)
                 
-                List {
-                    Text("Which side of the chicken has more feathers? The outside.")
-                    Text("Why did the Clydesdale give the pony a glass of water? Because he was a little horse!")
-                    Text("The great thing about stationery shops is they're always in the same place...")
+                // Iterates over the list of favourites
+                // As we iterate, each individual favourite is accessible via "currentFavourite
+                List(favourites, id: \.self ) { currentFavourite in
+                    Text(currentFavourite.joke)ç
                 }
                 
                 Spacer()
@@ -119,7 +136,9 @@ struct ContentView: View {
             // populates
             print(error)
         }
+        currentJokeAddedToFavourites = false
     }
+
 }
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
