@@ -11,6 +11,10 @@ struct ContentView: View {
     // MARK: Stored Properties
     @State var currentJoke: DadJoke = DadJoke(id: "", joke: "yo mama", status: 0)
     
+    // Detect when an  app moves between foregorund, background, and inactive states
+    //NOTE: A complete list of keypathstha can be used with @Enviroment can be found here: ...
+    @Environment (\.scenePhase) var scenePhase
+    
     // This keeps track of the favourites
     @State var favourites: [DadJoke]  = [] // empty list to start
     
@@ -92,7 +96,16 @@ struct ContentView: View {
                 // Also: any code below the call will run before the function call is complete
                 await loadNewJoke()
             }
-            
+            // Reacte to changes of state to the app (foregorund, background, inactive)
+            .onChange(of: scenePhase) { newPhase in
+                if newPhase == .inactive {
+                    print("InActive")
+                } else if newPhase == .active {
+                    print("active")
+                } else {
+                    print("background")
+                }
+            }
             .navigationTitle("icanhazdadjoke?")
             .padding()
         }
@@ -138,7 +151,7 @@ struct ContentView: View {
         }
         currentJokeAddedToFavourites = false
     }
-
+    
 }
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
