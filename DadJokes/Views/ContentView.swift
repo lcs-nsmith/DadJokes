@@ -12,7 +12,7 @@ struct ContentView: View {
     @State var currentJoke: DadJoke = DadJoke(id: "", joke: "yo mama", status: 0)
     
     // Detect when an  app moves between foregorund, background, and inactive states
-    //NOTE: A complete list of keypathstha can be used with @Enviroment can be found here: ...
+    //NOTE: A complete list of keypaths can be used with @Enviroment can be found here: https://developer.apple.com/documentation/swiftui/enviromentvalues
     @Environment (\.scenePhase) var scenePhase
     
     // This keeps track of the favourites
