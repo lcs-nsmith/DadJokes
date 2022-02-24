@@ -95,6 +95,7 @@ struct ContentView: View {
                 // Result might come right away, or take some time to complete.
                 // Also: any code below the call will run before the function call is complete
                 await loadNewJoke()
+                await loadFavourites()
             }
             // Reacte to changes of state to the app (foregorund, background, inactive)
             .onChange(of: scenePhase) { newPhase in
@@ -184,6 +185,37 @@ struct ContentView: View {
         } catch {
             print("enable to write list of favourites to the document directory")
             print("==============")
+            print(error.localizedDescription)
+        }
+    }
+   
+    //Loads the data that was saved to the device
+    //Loading the favourites
+    func loadFavourites() async {
+        // Retreive a location to load the data
+        let filename = getDocumentsDirectory().appendingPathComponent(savedFavouritesLabel)
+        print(filename)
+        
+        //Attempt to load the data
+        do {
+            //Load the raw data
+            let data = try Data(contentsOf: filename)
+            
+            // See the data that was read
+            print("Read data to the documents directory sucsessfully")
+            print ("=============")
+            print(String(data: data, encoding: .utf8)!)
+            
+            // Decode the json into swift native data structures
+            // There are sqaure brackets ..        HERE becuase there are multilpe jokes
+            //                                       |   and therefore we need a list for
+            //                                       ˅   them to be displayed
+            favourites = try JSONDecoder().decode([DadJoke].self, from: data)
+            
+        } catch {
+            //What went wrong
+            print("could not load the data from the stored json file")
+            print("=============")
             print(error.localizedDescription)
         }
     }
