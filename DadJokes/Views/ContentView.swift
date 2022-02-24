@@ -75,7 +75,7 @@ struct ContentView: View {
                 // Iterates over the list of favourites
                 // As we iterate, each individual favourite is accessible via "currentFavourite
                 List(favourites, id: \.self ) { currentFavourite in
-                    Text(currentFavourite.joke)ç
+                    Text(currentFavourite.joke)
                 }
                 
                 Spacer()
